@@ -50,17 +50,15 @@ jobs:
         run: yarn build
 
       - name: Remove source maps
-        run: | 
-            rm -rf dist/**/*.js.map
-            rm -rf node_modules
+        run: rm -rf dist/**/*.js.map
 
-      - name: Enter dist directory
-        run: cd dist
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: "./dist"
 
   deploy:
     environment:
