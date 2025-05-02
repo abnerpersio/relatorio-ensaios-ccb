@@ -22,7 +22,7 @@ env:
 
 jobs:
   deploy:
-    name: Deploy react app on AWS
+    name: Deploy react app
     runs-on: ubuntu-latest
 
     steps:
@@ -55,7 +55,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: 'dist/**/*'
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
