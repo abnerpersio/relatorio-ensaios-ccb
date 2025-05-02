@@ -14,6 +14,7 @@ export default defineConfig({
       project: process.env.SENTRY_PROJECT,
     }),
   ],
+  base: '/relatorio-ensaios-ccb/',
   build: {
     sourcemap: true,
   },
