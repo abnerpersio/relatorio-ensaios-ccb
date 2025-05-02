@@ -50,12 +50,17 @@ jobs:
         run: yarn build
 
       - name: Remove source maps
-        run: rm -rf dist/**/*.js.map
+        run: | 
+            rm -rf dist/**/*.js.map
+            rm -rf node_modules
+
+      - name: Enter dist directory
+        run: cd dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/.
+          path: .
 
   deploy:
     environment:
