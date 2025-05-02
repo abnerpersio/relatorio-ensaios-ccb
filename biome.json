@@ -43,6 +43,7 @@
             },
             "suspicious": {
                 "noExplicitAny": "warn",
+                "noArrayIndexKey": "warn",
                 "noConsoleLog": {
                     "fix": "none",
                     "level": "warn"

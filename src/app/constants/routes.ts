@@ -6,7 +6,6 @@ export const ROUTES = {
     activateAccount: '/activate-account',
     forgotPassword: '/forgot-password',
   },
-  dashboard: {
-    home: '/',
-  },
+  home: '/',
+  listing: '/listing',
 };

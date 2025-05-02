@@ -19,9 +19,9 @@ export function LaunchScreen(props: Props) {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <div className={cn('fixed top-0 left-0 w-full h-full bg-violet-100 z-50', 'grid place-items-center')}>
+      <div className={cn('fixed top-0 left-0 w-full h-full bg-zinc-200 z-50', 'grid place-items-center')}>
         <div className="flex flex-col items-center gap-4">
-          <Loader2Icon className="text-violet-500 animate-spin size-7" />
+          <Loader2Icon className="text-zinc-700 animate-spin size-7" />
         </div>
       </div>
     </Transition>

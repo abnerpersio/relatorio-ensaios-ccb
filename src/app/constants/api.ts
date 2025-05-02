@@ -7,11 +7,7 @@ export const API = {
   user: {
     profile: '/v1/admin/user/profile',
   },
-  invite: {
-    list: '/v1/admin/celebration/:celebrationId/invites',
-  },
-  wa: {
-    status: '/v1/admin/wa/status',
-    requestWASync: '/v1/admin/wa/sync',
+  listings: {
+    base: '/v1/listings',
   },
 };

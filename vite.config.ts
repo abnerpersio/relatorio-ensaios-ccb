@@ -18,6 +18,7 @@ export default defineConfig({
     sourcemap: true,
   },
   server: {
+    port: 3003,
     allowedHosts: ['.ngrok-free.app'],
   },
   resolve: {

@@ -15,8 +15,14 @@
     "ci:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.2",
     "@hookform/resolvers": "^5.0.1",
     "@microsoft/clarity": "^1.0.0",
+    "@radix-ui/react-checkbox": "^1.2.3",
+    "@radix-ui/react-dropdown-menu": "^2.1.12",
+    "@radix-ui/react-select": "^2.2.2",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@radix-ui/react-tabs": "^1.1.9",
     "@sentry/react": "^9.14.0",
     "@sentry/vite-plugin": "^3.3.1",
     "@tailwindcss/vite": "^4.1.4",
