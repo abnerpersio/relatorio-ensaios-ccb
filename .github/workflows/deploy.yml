@@ -52,6 +52,9 @@ jobs:
       - name: Remove source maps
         run: rm -rf dist/**/*.js.map
 
+      - name: Debug build output
+        run: ls -la dist
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
