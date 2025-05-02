@@ -19,7 +19,7 @@ type LanguageItem = {
 const languages = [
   {
     code: 'ptBr',
-    name: t('generic.languageNames.pt'),
+    name: t('generic.language_names.pt_br'),
     flag: '🇧🇷',
   },
 ] satisfies LanguageItem[];

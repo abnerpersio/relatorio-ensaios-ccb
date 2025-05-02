@@ -1,9 +1,10 @@
 export default {
   generic: {
-    selectLanguage: 'Selecione o idioma',
-    languageNames: {
+    date_time_format: '{{date}} às {{hours}}',
+    select_language: 'Selecione o idioma',
+    language_names: {
       en: 'Inglês',
-      pt: 'Português',
+      pt_br: 'Português',
       es: 'Espanhol',
       fr: 'Francês',
     },

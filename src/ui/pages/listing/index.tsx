@@ -1,7 +1,6 @@
 import { cn } from '@/app/lib/utils/styles';
 import { Skeleton } from '@/ui/components/shared/skeleton';
 import { t } from 'i18next';
-import { useListings } from './hooks/use-listing';
 import { useListingConfig } from './hooks/use-listing-config';
 
 export default function ListingPage() {

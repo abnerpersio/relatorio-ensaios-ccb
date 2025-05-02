@@ -1,16 +1,14 @@
 import type { ListingLocation } from '@/app/entities/listing';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useListingConfig } from './use-listing-config';
 
 type ListingOptions = {};
 
-export function useListings(options?: ListingOptions) {
+export function useListings(_options?: ListingOptions) {
   const { config } = useListingConfig();
 
-  const { cidade, estado } = options || {};
-
-  const [listings, setListings] = useState<ListingLocation[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [listings] = useState<ListingLocation[]>([]);
+  const [isLoading] = useState(true);
 
   //   useEffect(() => {
   //     async function fetchEnsaios() {
