@@ -47,18 +47,4 @@ jobs:
         run: yarn ci:validate-env
 
       - name: Build project
-        run: yarn build
-
-      - name: Remove source maps
-        run: rm -rf dist/**/*.js.map
-
-      - name: Debug build output
-        run: ls -la dist
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        run: yarn deploy
