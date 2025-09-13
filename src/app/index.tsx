@@ -1,6 +1,5 @@
 import '@/ui/styles/global.css';
 
-import { AuthProvider } from '@/app/contexts/auth-context';
 import { ErrorBoundary } from '@/app/providers/error-boundary';
 import { QueryProvider } from '@/app/providers/query';
 import { Router } from '@/app/router';
@@ -14,11 +13,9 @@ export default function App() {
     <ErrorBoundary fallback={<PageError message="Ocorreu um erro inesperado! Tente recarregar a página" />}>
       <BrowserRouter>
         <QueryProvider>
-          <AuthProvider>
-            <Router />
+          <Router />
 
-            <Toaster position="bottom-right" />
-          </AuthProvider>
+          <Toaster position="bottom-right" />
         </QueryProvider>
       </BrowserRouter>
     </ErrorBoundary>

@@ -1,0 +1,26 @@
+{
+  "city": "Louveira",
+  "state": "SP",
+  "list": [
+    {
+      "location": "Jardim Lago Azul",
+      "schedule": "1º Sáb 19:30",
+      "coordinator": "Josivaldo"
+    },
+    {
+      "location": "Monte Rei",
+      "schedule": "3º Sáb 19:30",
+      "coordinator": "Ramon"
+    },
+    {
+      "location": "Vila Pasti",
+      "schedule": "Últ. Sex 19:30",
+      "coordinator": "Elias"
+    },
+    {
+      "location": "Vila da Conquista",
+      "schedule": "2º Sáb 19:30",
+      "coordinator": ""
+    }
+  ]
+}

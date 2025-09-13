@@ -1,0 +1,21 @@
+{
+    "version": "1.0.0",
+    "baseURL": "https://relatorio-ensaios-storage.s3.us-east-1.amazonaws.com",
+    "locations": [
+        {
+            "id": "brasil",
+            "displayName": "Brasil",
+            "key": "/brasil/brasil.json"
+        },
+        {
+            "id": "louveira__sp",
+            "displayName": "Louveira - SP",
+            "key": "/brasil/state/sp/region/jundiai/louveira.json"
+        },
+        {
+            "id": "jundiai__sp",
+            "displayName": "Jundiaí - SP",
+            "key": "/brasil/state/sp/region/jundiai/jundiai.json"
+        }
+    ]
+}
