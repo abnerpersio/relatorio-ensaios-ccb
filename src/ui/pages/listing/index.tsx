@@ -1,39 +1,91 @@
-import { cn } from '@/app/lib/utils/styles';
-import { Skeleton } from '@/ui/components/shared/skeleton';
-import { t } from 'i18next';
-import { useListingConfig } from './hooks/use-listing-config';
+import type { ListingLocation } from "@/app/entities/listing";
+import { Skeleton } from "@/ui/components/shared/skeleton";
+import { LocationConfigModal } from "@/ui/pages/listing/components/location-config-modal";
+import { t } from "i18next";
+import { useState } from "react";
+import { LocationButton } from "./components/location-button";
+import { useListings } from "./hooks/use-listings";
+import { useTodayEvents } from "./hooks/use-today-events";
 
 export default function ListingPage() {
-  const { config, isFetching } = useListingConfig();
+  const { locations, isFetching: isConfigLoading } = useListings();
+  const { locations: todayLocations, isFetching: isTodayLoading } =
+    useTodayEvents();
 
-  const hasConfig = !isFetching && config;
+  const [selectedLocation, setSelectedLocation] =
+    useState<ListingLocation | null>(null);
+
+  const hasLocations = !isConfigLoading && locations;
+  const hasTodayConfig = !isTodayLoading && todayLocations;
+
+  const handleLocationClick = (location: ListingLocation) => {
+    setSelectedLocation(location);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedLocation(null);
+  };
 
   return (
-    <div className="w-full flex flex-col items-center gap-8">
-      <h2 className="text-blue-950 font-bold">{t('pages.listing.title')}</h2>
+    <div className="w-full flex flex-col items-center gap-8 pb-12">
+      <div className="w-full flex flex-col items-center gap-8 max-w-[580px]">
+        <section className="w-full">
+          <h3 className="text-base font-semibold text-blue-950 mb-4 text-center">
+            {t("pages.listing.today_rehearsals")}
+          </h3>
 
-      <div className="w-full flex flex-col items-center gap-3 max-w-[580px]">
-        {isFetching &&
-          Array.from({ length: 6 }).map((_, index) => <Skeleton className="w-full h-18" key={index} />)}
+          <div className="w-full flex flex-col items-center gap-3">
+            {isTodayLoading &&
+              Array.from({ length: 2 }).map((_, index) => (
+                <Skeleton className="w-full h-18" key={`today-${index}`} />
+              ))}
 
-        {hasConfig &&
-          config.locations.map((location) => (
-            <button
-              key={location.id}
-              type="button"
-              tabIndex={0}
-              className={cn(
-                'w-full flex items-center h-18',
-                'bg-accent text-accent-foreground text-base p-2 rounded-sm',
-                'border border-accent-foreground/10',
-                'cursor-pointer hover:bg-accent/50 hover:border-accent-foreground/30 focus:bg-accent/70 focus:border-accent-foreground/50',
-                'transition-all duration-200 ease-in-out',
-              )}
-            >
-              <p className="text-sm font-semibold text-blue-950">{location.displayName}</p>
-            </button>
-          ))}
+            {hasTodayConfig &&
+              todayLocations.length > 0 &&
+              todayLocations.map((location) => (
+                <LocationButton
+                  key={location.id}
+                  location={location}
+                  onClick={handleLocationClick}
+                />
+              ))}
+
+            {hasTodayConfig && todayLocations.length === 0 && (
+              <p className="text-sm text-muted-foreground text-center py-4">
+                {t("pages.listing.none_rehearsals")}
+              </p>
+            )}
+          </div>
+        </section>
+
+        <section className="w-full">
+          <h3 className="text-base font-semibold text-blue-950 mb-4 text-center">
+            {t("pages.listing.other_rehearsals")}
+          </h3>
+
+          <div className="w-full flex flex-col items-center gap-3">
+            {isConfigLoading &&
+              Array.from({ length: 4 }).map((_, index) => (
+                <Skeleton className="w-full h-18" key={`other-${index}`} />
+              ))}
+
+            {hasLocations &&
+              locations.map((location) => (
+                <LocationButton
+                  key={location.id}
+                  location={location}
+                  onClick={handleLocationClick}
+                />
+              ))}
+          </div>
+        </section>
       </div>
+
+      <LocationConfigModal
+        location={selectedLocation}
+        isOpen={!!selectedLocation}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }

@@ -1,14 +1,14 @@
-import { t } from 'i18next';
-import { useState } from 'react';
+import { t } from "i18next";
+import { useState } from "react";
 
-import type { Language } from '@/app/types/language';
-import { Button } from '../shared/button';
+import type { Language } from "@/app/types/language";
+import { Button } from "../shared/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../shared/dropdown-menu';
+} from "../shared/dropdown-menu";
 
 type LanguageItem = {
   code: Language;
@@ -18,14 +18,14 @@ type LanguageItem = {
 
 const languages = [
   {
-    code: 'ptBr',
-    name: t('generic.language_names.pt_br'),
-    flag: '🇧🇷',
+    code: "ptBr",
+    name: t("generic.language_names.pt_br"),
+    flag: "🇧🇷",
   },
 ] satisfies LanguageItem[];
 
 export function LanguageSelector() {
-  const [selectedCode, setSelectedCode] = useState<Language>('ptBr');
+  const [selectedCode, setSelectedCode] = useState<Language>("ptBr");
 
   const handleSelectChange = (value: Language) => {
     setSelectedCode(value);
@@ -49,9 +49,16 @@ export function LanguageSelector() {
 
         <DropdownMenuContent align="end" sideOffset={4}>
           {languages.map((lang) => (
-            <DropdownMenuItem key={lang.code} onClick={() => handleSelectChange(lang.code)}>
+            <DropdownMenuItem
+              key={lang.code}
+              onClick={() => handleSelectChange(lang.code)}
+            >
               <span className="flex items-center gap-2">
-                <img className="w-4 h-4 select-none" src={`/flags/${lang.code}.svg`} alt={lang.code} />
+                <img
+                  className="w-4 h-4 select-none"
+                  src={`/flags/${lang.code}.svg`}
+                  alt={lang.code}
+                />
                 {lang.name}
               </span>
             </DropdownMenuItem>

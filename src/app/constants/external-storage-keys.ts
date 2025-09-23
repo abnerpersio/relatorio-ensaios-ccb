@@ -1,3 +1,4 @@
 export const externalStorageKeys = {
-  config: '/config.json',
+  locations: "/locations.json",
+  today: "/today.json",
 };

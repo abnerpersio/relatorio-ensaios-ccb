@@ -1,9 +1,9 @@
 export const queryKeys = {
   user: {
-    profile: ['loggedUser', 'profile'],
+    profile: ["loggedUser", "profile"],
   },
   listings: {
-    config: ['listings', 'config'],
-    base: ['listings'],
+    base: ["listings"],
+    today: ["listings", "today"],
   },
 };

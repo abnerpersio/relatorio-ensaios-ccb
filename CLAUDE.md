@@ -3,6 +3,8 @@
 - pnpm ci:typecheck: Run the typechecker
 
 # Code style
+- Write code in english
+- Add texts to translations using i18n (src/locales/ folder)
 - Use typescript
 - Destructure imports when possible (eg. import { foo } from 'bar')
 - Never add comments
