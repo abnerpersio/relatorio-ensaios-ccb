@@ -36,7 +36,7 @@ export function LocationButton({ location, onClick }: LocationButtonProps) {
       </div>
 
       {dateLabel && (
-        <div className="flex text-[10px] sm:text-sm sm:flex-col sm:text-right justify-center gap-1">
+        <div className="flex text-[10px] sm:text-xs sm:flex-col sm:text-right justify-center gap-1">
           <p className="text-[10px] hidden sm:block font-normal">
             {t("pages.listing.modal.next_date")}
           </p>
