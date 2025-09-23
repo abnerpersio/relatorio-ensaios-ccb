@@ -5,10 +5,8 @@ import {
   DialogContent,
   DialogFooter,
   DialogHeader,
-  DialogTitle,
 } from "@/ui/components/shared/dialog";
 import { t } from "i18next";
-import { MapPin } from "lucide-react";
 
 type LocationConfigModalProps = {
   location: ListingLocation | null;

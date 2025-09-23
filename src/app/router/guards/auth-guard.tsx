@@ -1,17 +1,17 @@
-import { ROUTES } from '@/app/constants/routes';
-import { useAuth } from '@/app/hooks/use-auth';
-import { Navigate, Outlet } from 'react-router-dom';
+// import { ROUTES } from '@/app/constants/routes';
+// import { useAuth } from '@/app/hooks/use-auth';
+// import { Navigate, Outlet } from 'react-router-dom';
 
-export function AuthGuard({ isPrivate }: { isPrivate: boolean }) {
-  const { signedIn } = useAuth();
+// export function AuthGuard({ isPrivate }: { isPrivate: boolean }) {
+//   const { signedIn } = useAuth();
 
-  if (signedIn && !isPrivate) {
-    return <Navigate to={ROUTES.home} replace />;
-  }
+//   if (signedIn && !isPrivate) {
+//     return <Navigate to={ROUTES.home} replace />;
+//   }
 
-  if (!signedIn && isPrivate) {
-    return <Navigate to={ROUTES.auth.signIn} replace />;
-  }
+//   if (!signedIn && isPrivate) {
+//     return <Navigate to={ROUTES.auth.signIn} replace />;
+//   }
 
-  return <Outlet />;
-}
+//   return <Outlet />;
+// }
