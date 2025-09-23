@@ -1,7 +1,7 @@
 import { ListingLocation } from "@/app/entities/listing";
 import { DateUtils } from "@/app/lib/utils/date";
 import { cn } from "@/app/lib/utils/styles";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 type LocationButtonProps = {
   location: ListingLocation;
