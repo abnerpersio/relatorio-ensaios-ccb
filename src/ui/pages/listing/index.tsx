@@ -63,7 +63,7 @@ export default function ListingPage() {
             {t("pages.listing.other_rehearsals")}
           </h3>
 
-          <div className="w-full flex flex-col items-center gap-3">
+          <div className="w-full flex flex-col items-center gap-1.5 sm:gap-2">
             {isConfigLoading &&
               Array.from({ length: 4 }).map((_, index) => (
                 <Skeleton className="w-full h-18" key={`other-${index}`} />

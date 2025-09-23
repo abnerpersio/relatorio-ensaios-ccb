@@ -16,6 +16,9 @@ export default {
   routes: {
     listing: "Relatório",
   },
+  titles: {
+    label: "{{label}}: {{value}}",
+  },
   pages: {
     listing: {
       title: "Relatório Digital de Ensaios",

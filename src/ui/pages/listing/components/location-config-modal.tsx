@@ -1,4 +1,5 @@
 import type { ListingLocation } from "@/app/entities/listing";
+import { DateUtils } from "@/app/lib/utils/date";
 import { Button } from "@/ui/components/shared/button";
 import {
   Dialog,
@@ -21,12 +22,7 @@ export function LocationConfigModal({
 }: LocationConfigModalProps) {
   if (!location) return null;
 
-  const dateLabel = location.nextDate
-    ? Intl.DateTimeFormat("pt-BR", {
-        dateStyle: "long",
-        timeZone: "UTC",
-      }).format(new Date(location.nextDate))
-    : "";
+  const dateLabel = DateUtils.formatLongDate(location.nextDate);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose} modal>
