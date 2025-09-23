@@ -26,21 +26,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.x'
-          cache: 'yarn'
+          cache: 'pnpm'
 
       - run: npm pkg delete scripts.prepare
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
 
       - name: Typechecking
-        run: yarn ci:typecheck
+        run: pnpm ci:typecheck
 
       - name: Validate environment
-        run: yarn ci:validate-env
+        run: pnpm ci:validate-env
 
       - name: Build project
-        run: yarn build
+        run: pnpm build
 
       - name: Remove source maps
         run: rm -rf dist/**/*.js.map
