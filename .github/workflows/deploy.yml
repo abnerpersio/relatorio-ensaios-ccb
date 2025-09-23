@@ -22,16 +22,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Use Node.js 22.x
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '22.x'
+          node-version: '22'
           cache: 'pnpm'
+        
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - run: npm pkg delete scripts.prepare
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Typechecking
         run: pnpm ci:typecheck
@@ -53,7 +58,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-        run: aws s3 sync --delete ./dist s3://${{ secrets.BUCKET_NAME }}
+        run: aws s3 sync dist/ s3://${{ secrets.BUCKET_NAME }} --delete --exact-timestamps
 
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CF_ID }} --paths /index.html
