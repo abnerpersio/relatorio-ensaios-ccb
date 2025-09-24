@@ -5,21 +5,20 @@ import type { ListingLocation } from "@/app/entities/listing";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const URL = Env.storageBaseUrl.concat(externalStorageKeys.today);
+const URL = Env.storageBaseUrl.concat(externalStorageKeys.upcoming);
 
-type TodayConfig = {
-  version: string;
-  locations: ListingLocation[];
-};
+type UpcomingResult = Record<string, ListingLocation[]>;
 
 const fetchTodayConfigs = async () =>
-  axios.get<TodayConfig>(URL).then((res) => res.data);
+  axios.get<UpcomingResult>(URL).then((res) => res.data);
 
-export function useTodayEvents() {
-  const { data, ...query } = useQuery({
+const select = (data: UpcomingResult) =>
+  Object.entries(data).map(([key, locations]) => ({ key, locations }));
+
+export function useUpcomingEvents() {
+  return useQuery({
     queryKey: queryKeys.listings.today,
     queryFn: fetchTodayConfigs,
+    select,
   });
-
-  return { ...query, locations: data?.locations };
 }

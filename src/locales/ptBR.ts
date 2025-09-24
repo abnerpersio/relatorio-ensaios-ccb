@@ -23,7 +23,7 @@ export default {
   pages: {
     listing: {
       title: "Relatório Digital de Ensaios",
-      today_rehearsals: "Ensaios hoje",
+      upcoming_rehearsals: "Ensaios nos próximos dias",
       other_rehearsals: "Outros Ensaios",
       none_rehearsals: "Nenhum ensaio programado para hoje",
       modal: {

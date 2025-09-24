@@ -7,18 +7,17 @@ import axios from "axios";
 
 const URL = Env.storageBaseUrl.concat(externalStorageKeys.locations);
 
-type ListingConfig = {
-  version: string;
+type LocationsResult = {
   locations: ListingLocation[];
 };
 
-const fetchConfigs = async () =>
-  axios.get<ListingConfig>(URL).then((res) => res.data);
+const fetchLocations = async () =>
+  axios.get<LocationsResult>(URL).then((res) => res.data);
 
 export function useListings() {
   const { data, ...query } = useQuery({
     queryKey: queryKeys.listings.base,
-    queryFn: fetchConfigs,
+    queryFn: fetchLocations,
   });
 
   return { ...query, locations: data?.locations };
