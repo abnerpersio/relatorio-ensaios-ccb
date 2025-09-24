@@ -1,13 +1,10 @@
 export const API = {
   auth: {
-    signIn: '/v1/infra/auth/sign-in',
-    refreshToken: '/v1/infra/auth/refresh-token',
-    exchangeCode: '/v1/infra/auth/code',
+    signIn: "/v1/auth/sign-in",
+    refreshToken: "/v1/auth/refresh-token",
+    exchangeCode: "/v1/auth/code",
   },
   user: {
-    profile: '/v1/admin/user/profile',
-  },
-  listings: {
-    base: '/v1/listings',
+    profile: "/v1/user/profile",
   },
 };

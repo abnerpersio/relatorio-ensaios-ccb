@@ -10,6 +10,7 @@
 - Never add comments
 - Write functions with readable names
 - Avoid ternaries
+- Use pnpm to run commands
 
 # Workflow
 - Open browser on MCP to validate vite project running
