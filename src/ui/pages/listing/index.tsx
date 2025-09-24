@@ -29,8 +29,8 @@ export default function ListingPage() {
   return (
     <div className="w-full flex flex-col items-center gap-8 pb-12">
       <div className="w-full flex flex-col items-center gap-8 max-w-[580px]">
-        <section className="w-full">
-          <h3 className="text-base font-semibold text-blue-950 mb-4 text-center">
+        <section className="w-full space-y-2">
+          <h3 className="text-base text-left font-semibold text-blue-950">
             {t("pages.listing.today_rehearsals")}
           </h3>
 
@@ -58,8 +58,8 @@ export default function ListingPage() {
           </div>
         </section>
 
-        <section className="w-full">
-          <h3 className="text-base font-semibold text-blue-950 mb-4 text-center">
+        <section className="w-full space-y-2">
+          <h3 className="text-base text-left font-semibold text-blue-950">
             {t("pages.listing.other_rehearsals")}
           </h3>
 

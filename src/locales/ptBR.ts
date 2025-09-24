@@ -3,6 +3,7 @@ export default {
     date_time_format: "{{date}} às {{hours}}",
     select_language: "Selecione o idioma",
     close: "Fechar",
+    app_title: "Relatório ensaios CCB",
     language_names: {
       en: "Inglês",
       pt_br: "Português",

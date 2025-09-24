@@ -37,13 +37,14 @@ export function LanguageSelector() {
     <div className="flex items-center space-x-4">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="gap-2 text-xs px-2">
+          <Button variant="outline" className="gap-2 text-xs p-1 px-2 h-8">
             <img
               className="w-4 h-4 select-none"
               src={`/flags/${selectedCode}.svg`}
               alt={selectedLanguage?.flag}
             />
-            {selectedLanguage?.name}
+
+            <span>{selectedLanguage?.name}</span>
           </Button>
         </DropdownMenuTrigger>
 
